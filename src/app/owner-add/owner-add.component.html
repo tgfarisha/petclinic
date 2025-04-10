@@ -1,0 +1,24 @@
+<form (ngSubmit)="saveOwner()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input [(ngModel)]="owner.firstName" name="firstName" required />
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input [(ngModel)]="owner.lastName" name="lastName" required />
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input [(ngModel)]="owner.address" name="address" />
+    </div>
+    <div>
+      <label for="city">City:</label>
+      <input [(ngModel)]="owner.city" name="city" />
+    </div>
+    <div>
+      <label for="telephone">Telephone:</label>
+      <input [(ngModel)]="owner.telephone" name="telephone" />
+    </div>
+    <button type="submit">Save Owner</button>
+  </form>
+  
