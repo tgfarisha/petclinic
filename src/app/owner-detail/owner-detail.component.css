@@ -1,0 +1,19 @@
+.custom-striped-table tr:nth-child(odd) {
+    background-color: oklch(92.3% 0.003 48.717)
+  }
+  
+  .custom-striped-table tr:nth-child(even) {
+    background-color: white;
+    color: black;
+  }
+  
+  .custom-striped-table th {
+    width: 30%;
+    font-weight: bold;
+  }
+  
+  .custom-striped-table {
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  

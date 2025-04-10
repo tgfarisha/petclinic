@@ -33,7 +33,6 @@ export class OwnerService {
 
   //Update owner
   updateOwner(id: number, owner: Owner): Observable<Owner> {
-    return this.http.put<Owner>(`${this.apiUrl}/${id}}`, owner);
+    return this.http.put<Owner>(`${this.apiUrl}/${id}`, owner);
   }
-
 }

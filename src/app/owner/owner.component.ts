@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { OwnerService } from '../owner.service';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-owner',
   standalone: true,
-  imports: [FormsModule, NavbarComponent, RouterModule],
+  imports: [
+    FormsModule, 
+    RouterModule, 
+  ],
   templateUrl: './owner.component.html',
   styleUrl: './owner.component.css'
 })

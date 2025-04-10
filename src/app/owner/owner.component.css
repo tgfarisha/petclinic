@@ -1,0 +1,40 @@
+/* Add your custom CSS styles here */
+
+/* Style the container to ensure it's centered */
+.owner-search {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Add extra padding to the input field */
+  .owner-search .form-control {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Customize the button appearance */
+  .owner-search .btn-dark {
+    background-color: black;
+    border-color: #28a745;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  /* Hover effect for the button */
+  .owner-search .btn-dark:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  /* Input and button responsive behavior */
+  @media (max-width: 768px) {
+    .owner-search .col-md-6 {
+      margin-bottom: 10px;
+    }
+  
+    .owner-search .col-auto {
+      margin-top: 10px;
+    }
+  }
+  

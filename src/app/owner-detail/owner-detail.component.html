@@ -1,7 +1,25 @@
-<div *ngIf="owner">
-    <h2>{{ owner.firstName }} {{ owner.lastName }}</h2>
-    <p><strong>Address:</strong> {{ owner.address }}</p>
-    <p><strong>City:</strong> {{ owner.city }}</p>
-    <p><strong>Telephone:</strong> {{ owner.telephone }}</p>
+<div class="container-fluid my-5" style="height: 100vh;">
+  <div class="text-center">
+    <h2 class="my-4" style="margin-left: 30px;">Owner Information</h2>
+    <table class="table table-striped w-100 h-100 mx-auto custom-striped-table" style="table-layout: fixed; height: 100%; width: 100%;">
+      <tbody *ngIf="owner">
+        <tr>
+          <th scope="row">Name</th>
+          <td>{{ owner.firstName + ' ' + owner.lastName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Address</th>
+          <td>{{ owner.address }}</td>
+        </tr>
+        <tr>
+          <th scope="row">City</th>
+          <td>{{ owner.city }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Telephone</th>
+          <td>{{ owner.telephone }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+</div>

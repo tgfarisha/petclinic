@@ -1,7 +1,24 @@
-<div class="owner-search">
-    <input [(ngModel)]="lastName" placeholder="Search by last name" />
-    <button (click)="searchOwner()">Find Owner</button>
-</div>
-
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="owner-search container my-5">
+    <div class="bg-white shadow-lg rounded-2xl p-6 border border-gray-200">
+      <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Find Owners</h2>
+      
+      <form class="row g-3 justify-content-center align-items-center">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control shadow-sm rounded-lg"
+            placeholder="Enter owner's last name"
+            [(ngModel)]="lastName"
+            name="lastName"
+          />
+        </div>
+        <br>
+        <div class="col-auto">
+          <button type="button" class="btn btn-dark px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
+            (click)="searchOwner()"> Find Owner
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
