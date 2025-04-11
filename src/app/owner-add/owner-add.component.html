@@ -1,24 +1,34 @@
-<form (ngSubmit)="saveOwner()">
-    <div>
-      <label for="firstName">First Name:</label>
-      <input [(ngModel)]="owner.firstName" name="firstName" required />
+<div class="form-container">
+  <form (ngSubmit)="saveOwner()">
+    <h2>New Owner</h2>
+
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input [(ngModel)]="owner.firstName" name="firstName" class="form-control" id="firstName" required />
     </div>
-    <div>
-      <label for="lastName">Last Name:</label>
-      <input [(ngModel)]="owner.lastName" name="lastName" required />
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input [(ngModel)]="owner.lastName" name="lastName" class="form-control" id="lastName" required />
     </div>
-    <div>
-      <label for="address">Address:</label>
-      <input [(ngModel)]="owner.address" name="address" />
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input [(ngModel)]="owner.address" name="address" class="form-control" id="address" />
     </div>
-    <div>
-      <label for="city">City:</label>
-      <input [(ngModel)]="owner.city" name="city" />
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input [(ngModel)]="owner.city" name="city" class="form-control" id="city" />
     </div>
-    <div>
-      <label for="telephone">Telephone:</label>
-      <input [(ngModel)]="owner.telephone" name="telephone" />
+
+    <div class="form-group">
+      <label for="telephone">Telephone</label>
+      <input [(ngModel)]="owner.telephone" name="telephone" class="form-control" id="telephone" />
     </div>
-    <button type="submit">Save Owner</button>
+
+    <div class="form-footer">
+      <button type="submit" class="btn btn-dark">Add Owner</button>
+    </div>
   </form>
-  
+</div>

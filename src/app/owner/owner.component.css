@@ -8,23 +8,26 @@
   
   /* Add extra padding to the input field */
   .owner-search .form-control {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
   }
   
   /* Customize the button appearance */
   .owner-search .btn-dark {
     background-color: black;
-    border-color: #28a745;
-    font-size: 1rem;
     color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   /* Hover effect for the button */
   .owner-search .btn-dark:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+    background-color: oklch(44.4% 0.011 73.639);
   }
   
   /* Input and button responsive behavior */

@@ -37,4 +37,8 @@ export class OwnerComponent {
   viewOwnerDetails(id: number): void {
     this.router.navigate(['/owner-detail', id]);
   }
+
+  addOwner(): void {
+    this.router.navigate(['/owner-add']);
+  }
 }

@@ -16,8 +16,10 @@ export class OwnerAddComponent {
   constructor(private ownerService: OwnerService, private router: Router){}
 
   saveOwner(): void {
-    this.ownerService.createOwner(this.owner).subscribe(() => {
-      this.router.navigate(['/']);
+    this.ownerService.createOwner(this.owner).subscribe((newOwner) => {
+      // Navigate to the owner-detail page with the new owner's ID
+      this.router.navigate(['/owner-detail', newOwner.id]);
     });
   }
+  
 }
