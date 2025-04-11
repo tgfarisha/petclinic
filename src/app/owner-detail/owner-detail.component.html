@@ -1,7 +1,8 @@
 <div class="container-fluid my-5" style="height: 100vh;">
-  <div class="text-center">
+  <div class="text-left">
     <h2 class="my-4" style="margin-left: 30px;">Owner Information</h2>
-    <table class="table table-striped w-100 h-100 mx-auto custom-striped-table" style="table-layout: fixed; height: 100%; width: 100%;">
+    <table class="table table-striped w-100 h-100 mx-auto custom-striped-table"
+      style="table-layout: fixed; height: 100%; width: 100%;">
       <tbody *ngIf="owner">
         <tr>
           <th scope="row">Name</th>
@@ -21,5 +22,42 @@
         </tr>
       </tbody>
     </table>
+    <div class="col-auto">
+      <button type="button" class="btn btn-dark px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
+        (click)="editOwner()"> Edit
+        Owner
+      </button>
+      <button type="button" class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition">
+        Add New
+        Pet
+      </button>
+    </div><br><br>
+    <h2 class="my-3" style="margin-left: 30px;">Pets and Visit</h2>
+    <table *ngIf="pets.length > 0; else noPets" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Birth Date</th>
+          <th>Visit Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets">
+          <td>{{ pet.petName }}</td>
+          <td>{{ pet.petType }}</td>
+          <td>{{ pet.petDOB | date:'yyyy-MM-dd' }}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- No Pets Message -->
+    <ng-template #noPets>
+      <p>No pets found for this owner.</p>
+    </ng-template>
+
   </div>
 </div>
