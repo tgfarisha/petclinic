@@ -22,8 +22,10 @@ export class OwnerComponent {
   constructor(private ownerService: OwnerService, private router: Router) {}
 
   searchOwner(): void {
-    if (this.lastName.trim() !== '') {
-      this.ownerService.searchOwnerByLastname(this.lastName).subscribe((data) => {
+    const trimmedLastName = this.lastName.trim();
+  
+    if (trimmedLastName !== '') {
+      this.ownerService.searchOwnerByLastname(trimmedLastName).subscribe((data) => {
         if (data) {
           this.owner = data;
           this.viewOwnerDetails(this.owner.id as number);
@@ -31,8 +33,11 @@ export class OwnerComponent {
           alert('No owner found');
         }
       });
+    } else {
+      // Redirect to list view of all owners
+      this.router.navigate(['/owner-list']);
     }
-  }
+  }  
 
   viewOwnerDetails(id: number): void {
     this.router.navigate(['/owner-detail', id]);
