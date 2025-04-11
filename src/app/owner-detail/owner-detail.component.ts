@@ -24,7 +24,7 @@ export class OwnerDetailComponent implements OnInit {
     private ownerService: OwnerService,
     private petService: PetService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.ownerId = +this.route.snapshot.paramMap.get('id')!;

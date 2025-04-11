@@ -27,7 +27,8 @@
         (click)="editOwner()"> Edit
         Owner
       </button>
-      <button type="button" class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition">
+      <button type="button" class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition"
+        (click)="addPet()">
         Add New
         Pet
       </button>
@@ -39,6 +40,7 @@
           <th>Name</th>
           <th>Type</th>
           <th>Birth Date</th>
+          <th></th>
           <th>Visit Date</th>
           <th>Description</th>
         </tr>
@@ -48,6 +50,13 @@
           <td>{{ pet.petName }}</td>
           <td>{{ pet.petType }}</td>
           <td>{{ pet.petDOB | date:'yyyy-MM-dd' }}</td>
+          <td>
+            <button type="button"
+              class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition"
+              (click)="editPet(pet.id!)">
+              Edit Pet
+            </button>
+          </td>
           <td></td>
           <td></td>
         </tr>

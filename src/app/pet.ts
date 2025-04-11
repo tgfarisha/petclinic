@@ -5,7 +5,7 @@ export class Pet {
   petName: string = '';
   petType: string = '';
   petDOB: Date = new Date();
-  owner?: Owner;
+  owner?: Partial<Owner>;
 
   constructor(
     id?: number,

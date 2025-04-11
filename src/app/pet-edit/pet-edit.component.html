@@ -1,1 +1,22 @@
-<p>pet-edit works!</p>
+<div class="container my-5">
+  <h2>Pet</h2>
+  <p>Owner <br> <strong>{{ ownerName }}</strong></p>
+  
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="petName">Name</label>
+      <input type="text" id="petName" class="form-control" [(ngModel)]="pet.petName" name="petName" required>
+    </div>
+    <div class="form-group">
+      <label for="petType">Type</label>
+      <input type="text" id="petType" class="form-control" [(ngModel)]="pet.petType" name="petType" required>
+    </div>
+
+    <div class="form-group">
+      <label for="petDOB">Birth Date</label>
+      <input type="date" id="petDOB" class="form-control" [(ngModel)]="formattedDOB" name="petDOB" required>
+    </div>
+
+    <button type="submit" class="btn btn-dark mt-3">Update Pet</button>
+  </form>
+</div>
