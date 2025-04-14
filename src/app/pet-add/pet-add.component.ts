@@ -19,7 +19,8 @@ export class PetAddComponent implements OnInit {
     petName: '',
     petType: '',
     petDOB: new Date(),
-    owner: { id: this.ownerId }
+    owner: { id: this.ownerId },
+    visits: []
   };
   ownerName!: string;
 

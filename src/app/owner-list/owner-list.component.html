@@ -23,4 +23,20 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Pagination Controls -->
+  <nav *ngIf="totalPages > 1">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 0">
+        <button class="page-link" (click)="loadOwners(currentPage - 1)">Previous</button>
+      </li>
+      <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+        [class.active]="i === currentPage">
+        <button class="page-link" (click)="loadOwners(i)">{{ i + 1 }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+        <button class="page-link" (click)="loadOwners(currentPage + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
 </div>

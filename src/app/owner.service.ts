@@ -11,10 +11,10 @@ export class OwnerService {
 
   constructor(private http: HttpClient) { }
 
-  //Get all owners
-  getAllOwners(): Observable<Owner[]> {
-    return this.http.get<Owner[]>(this.apiUrl);
-  }
+  //Get all owners (pagination)
+  getPaginatedOwners(page: number, size: number) {
+    return this.http.get<any>(`http://localhost:8080/owners?page=${page}&size=${size}`);
+  }  
 
   //Search owner by last name
   searchOwnerByLastname(lastName: string): Observable<Owner> {

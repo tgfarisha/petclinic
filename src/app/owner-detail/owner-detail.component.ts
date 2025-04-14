@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Owner } from '../owner';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { OwnerService } from '../owner.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { PetService } from '../pet.service';
 @Component({
   selector: 'app-owner-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './owner-detail.component.html',
   styleUrl: './owner-detail.component.css'
 })
@@ -41,9 +41,29 @@ export class OwnerDetailComponent implements OnInit {
   getPetsForOwner(): void {
     this.petService.getPetsOwnerId(this.ownerId).subscribe((data) => {
       this.pets = data;
+      this.pets.forEach((pet) => {
+        this.getVisitsForPet(pet);
+      });
     });
   }
 
+  getVisitsForPet(pet: Pet): void {
+    this.petService.getVisitsByPetId(this.ownerId, pet.id!).subscribe({
+      next: (visits) => {
+        pet.visits = visits;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+  
+  getSortedVisits(visits: any[]): any[] {
+    return visits.slice().sort((a, b) => {
+      return new Date(b.visitDate).getTime() - new Date(a.visitDate).getTime();
+    });
+  }  
+  
   editOwner(): void {
     this.router.navigate(['/owner-edit', this.ownerId]);
   }

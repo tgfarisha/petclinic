@@ -1,6 +1,6 @@
 <div class="container-fluid my-5" style="height: 100vh;">
   <div class="text-left">
-    <h2 class="my-4" style="margin-left: 30px;">Owner Information</h2>
+    <h2 class="my-3" style="margin-left: 30px;">Owner Information</h2>
     <table class="table table-striped w-100 h-100 mx-auto custom-striped-table"
       style="table-layout: fixed; height: 100%; width: 100%;">
       <tbody *ngIf="owner">
@@ -22,17 +22,16 @@
         </tr>
       </tbody>
     </table>
+
     <div class="col-auto">
       <button type="button" class="btn btn-dark px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
-        (click)="editOwner()"> Edit
-        Owner
+        (click)="editOwner()"> Edit Owner
       </button>
       <button type="button" class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition"
-        (click)="addPet()">
-        Add New
-        Pet
+        (click)="addPet()"> Add New Pet
       </button>
     </div><br><br>
+
     <h2 class="my-3" style="margin-left: 30px;">Pets and Visit</h2>
     <table *ngIf="pets.length > 0; else noPets" class="table table-striped">
       <thead>
@@ -41,25 +40,44 @@
           <th>Type</th>
           <th>Birth Date</th>
           <th></th>
-          <th>Visit Date</th>
-          <th>Description</th>
+          <th>Visit Date & Description</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let pet of pets">
+      <tbody *ngFor="let pet of pets">
+        <tr>
           <td>{{ pet.petName }}</td>
           <td>{{ pet.petType }}</td>
-          <td>{{ pet.petDOB | date:'yyyy-MM-dd' }}</td>
+          <td>{{ pet.petDOB | date:'dd-MM-yyyy' }}</td>
           <td>
-            <button type="button"
-              class="btn btn-dark px-4 py-2 mx-4 rounded-lg font-medium hover:bg-green-700 transition"
+            <a href="javascript:void(0)" class="text-primary fw-semibold text-decoration-underline"
               (click)="editPet(pet.id!)">
               Edit Pet
-            </button>
+            </a>
           </td>
-          <td></td>
-          <td></td>
+
+          <!-- Visit Dates & Descriptions (no bullets) -->
+          <td *ngIf="pet.visits && pet.visits.length > 0; else noVisit">
+            <ul style="list-style-type: none; padding-left: 0; margin: 0;">
+              <li *ngFor="let visit of getSortedVisits(pet.visits)">
+                {{ visit.visitDate | date:'dd-MM-yyyy' }} &nbsp;&nbsp; {{ visit.visitDesc }}
+              </li>              
+            </ul>
+          </td>
+
+          <!-- Add Visit Button -->
+          <td>
+            <a [routerLink]="['/owner-detail', owner?.id, 'pet', pet.id, 'visit-add']"
+              class="text-primary fw-semibold text-decoration-underline">
+              Add Visit
+            </a>
+          </td>
         </tr>
+
+        <!-- If pet has no visits -->
+        <ng-template #noVisit>
+          <td>No visits</td>
+        </ng-template>
       </tbody>
     </table>
 

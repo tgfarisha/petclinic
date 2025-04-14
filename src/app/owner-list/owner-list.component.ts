@@ -12,14 +12,23 @@ import { CommonModule } from '@angular/common';
 })
 export class OwnerListComponent implements OnInit {
   owners: Owner[] = [];
+  totalPages: number = 0;
+  currentPage: number = 0;
+  pageSize: number = 5;
 
   constructor(private ownerService: OwnerService, private router: Router) {
   }
 
   ngOnInit(): void {
-      this.ownerService.getAllOwners().subscribe((data) => {
-        this.owners = data;
-      });
+    this.loadOwners(this.currentPage);
+  }
+
+  loadOwners(page: number): void {
+    this.ownerService.getPaginatedOwners(page, this.pageSize).subscribe((response) => {
+      this.owners = response.content;
+      this.totalPages = response.totalPages;
+      this.currentPage = response.number;
+    });
   }
 
   viewOwnerDetails(id: number): void {
