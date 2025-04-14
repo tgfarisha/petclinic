@@ -1,5 +1,6 @@
 <nav class="navbar">
   <div class="navbar-container my-3">
+
     <!-- Logo -->
     <div class="logo">
       <img src="assets/spring-boot-logo.png" alt="Spring Boot Logo" />
@@ -8,7 +9,7 @@
     <!-- Navbar Links -->
     <ul class="nav-links">
       <li>
-        <a routerLink="/" routerLinkActive="active">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <i class="fas fa-home"></i> HOME
         </a>
       </li>
